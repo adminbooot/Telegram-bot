@@ -13,122 +13,45 @@ logger.setLevel(logging.DEBUG)
 
 
 @bot.message_handler(commands=['start'])
-def boten(message):
-	
-    
-    
-    mas = types.InlineKeyboardMarkup(row_width=2)
-    
-    A = types.InlineKeyboardButton(text ="USER (BFFFL)", callback_data="F1")
-    
-    E = types.InlineKeyboardButton(text ="USER (BFFF2)", callback_data="F2")
-    
-    M = types.InlineKeyboardButton('المطور', url='https://t.me/SidraTools')
-    
-    mas.add(A,E,M)
-    
-    bot.send_message(message.chat.id, f"- أهلاً بكً  !\n\n- بوت تشكير يوزرات تلجرام 🧑‍💻\n\n♻️ لوحة التحكم الخاصه بك ♨️",reply_markup=mas)
-    
-    
-@bot.callback_query_handler(func=lambda call: True)
-def masg(call):
-	
-	
-	global nam
-	
-	if call.data =="SidraTools":
-		
-		mas = types.InlineKeyboardMarkup(row_width=2)
-		
-		A = types.InlineKeyboardButton(text ="USER (BFFFL)", callback_data="F1")
+def start(message):
+ bot.reply_to(message,f'''WELCOM IN BOT GET INFO USER INSTAGRAM 😈🔥
+SEND USER NOW »
 
-		E = types.InlineKeyboardButton(text ="USER (BFFF2)", callback_data="F2")
-		
-		M = types.InlineKeyboardButton('المطور', url='https://t.me/SidraTools')
-		
-		M = types.InlineKeyboardButton('المطور', url='https://t.me/SidraTools')
-		
-		bot.edit_message_text(chat_id=call.message.chat.id,message_id=call.message.message_id, text="- أهلاً بكً عزيزي المستخدم \n\n- بوت تشكير يوزرات تلجرام 🧑‍💻\n\n♻️ لوحة التحكم الخاصه بك ♨️",reply_markup=mas)
+اهلا بڪ في بوت جلب معلومات  الانستغرام 😈🔥
+ارسل اليوزر الان »
 
-	elif call.data =="F1":
-		
-		xu = "MNBVCXZLKJHGFDSAPOIUYTREWQ"
-		xn = "MNBVCXZLKJHGFDSAPOIUYTREWQ"
-		xa = "MNBVCXZLKJHGFDSAPOIUYTREWQ"
-		ok=0
-		cp=0
-		sk=0
-		while True:
-			us = str(''.join(random.choice(xu)for i in range(1)))
-			un = str(''.join(random.choice(xn)for i in range(1)))
-			ua = str(''.join(random.choice(xa)for i in range(1)))
-			username = str(us)+str(un)+str(un)+str(un)+str(ua)
-			url = "https://t.me/"+str(username)
-			headers = {
-            "User-Agent": generate_user_agent(),
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
-            "Accept-Encoding": "gzip, deflate, br",
-            "Accept-Language" : "ar-EG,ar;q=0.9,en-US;q=0.8,en;q=0.7"}
-			response = requests.get(url, headers=headers)
-			if response.text.find('If you have <strong>Telegram</strong>, you can contact <a class="tgme_username_link"')>=0:
-				ok+=1
-				sk+=1
-				bot.send_message(call.message.chat.id,f"‹ ᴜѕᴇʀɴᴀᴍᴇ ᴛᴇʟᴇɢʀᴀᴍ  ✓\n────── • ✧✧ • ──────\n‹ ᴜѕᴇʀɴᴀᴍᴇ : @{username}\n────── • ✧✧ • ──────\n• @SidraTools")
-				
-			else:
-				cp+=1
-				sk+=1
-				mas = types.InlineKeyboardMarkup(row_width=2)
-				A = types.InlineKeyboardButton(f'GOOD : {ok}',callback_data="1x")
-				E = types.InlineKeyboardButton(f'EROR : {cp}', callback_data="1x")
-				B = types.InlineKeyboardButton(f'{username}', callback_data="1x")
-				R = types.InlineKeyboardButton(f'{sk}', callback_data="1x")
-				M = types.InlineKeyboardButton('المطور', url='https://t.me/SidraTools')
-				mas.add(A,E,B,R,M)
-				bot.edit_message_text(chat_id=call.message.chat.id,message_id=call.message.message_id,text="ok start",reply_markup=mas)
-				
-			
-		
-		
-	elif call.data =="F2":
-		
-		xu = "MNBVCXZLKJHGFDSAPOIUYTREWQ"
-		xn = "MNBVCXZLKJHGFDSAPOIUYTREWQ"
-		xa = "MNBVCXZLKJHGFDSAPOIUYTREWQ"
-		xm = "0987654321"
-		ok=0
-		cp=0
-		sk=0
-		while True:
-			us = str(''.join(random.choice(xu)for i in range(1)))
-			un = str(''.join(random.choice(xn)for i in range(1)))
-			ua = str(''.join(random.choice(xa)for i in range(1)))
-			bs = str(''.join(random.choice(xm)for i in range(1))) 
-			username = str(us)+str(un)+str(un)+str(un)+str(bs)
-			url = "https://t.me/"+str(username)
-			headers = {
-            "User-Agent": generate_user_agent(),
-            "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
-            "Accept-Encoding": "gzip, deflate, br",
-            "Accept-Language" : "ar-EG,ar;q=0.9,en-US;q=0.8,en;q=0.7"}
-			response = requests.get(url, headers=headers)
-			if response.text.find('If you have <strong>Telegram</strong>, you can contact <a class="tgme_username_link"')>=0:
-				ok+=1
-				sk+=1
-				bot.send_message(call.message.chat.id,f"‹ ᴜѕᴇʀɴᴀᴍᴇ ᴛᴇʟᴇɢʀᴀᴍ  ✓\n────── • ✧✧ • ──────\n‹ ᴜѕᴇʀɴᴀᴍᴇ : @{username}\n────── • ✧✧ • ──────\n• @SidraTools")
-				
-			else:
-				cp+=1
-				sk+=1
-				mas = types.InlineKeyboardMarkup(row_width=2)
-				A = types.InlineKeyboardButton(f'GOOD : {ok}', callback_data="1x")
-				E = types.InlineKeyboardButton(f'EROR : {cp}', callback_data="1x")
-				B = types.InlineKeyboardButton(f'{username}', callback_data="1x")
-				R = types.InlineKeyboardButton(f'{sk}', callback_data="1x")
-				M = types.InlineKeyboardButton('المطور', url='https://t.me/SidraTools')
-				mas.add(A,E,B,R,M)
-				bot.edit_message_text(chat_id=call.message.chat.id,message_id=call.message.message_id,text="ok start",reply_markup=mas)
-		
+○●○●○●○●○●○●○●○●○●
+DEV:@CD_B5
+CH:@IIIBIIl
+''')
+@bot.message_handler(func=lambda m:True)
+def d(message):   
+ user = message.text
+ url = f"https://mr-abood.herokuapp.com/Instagram/Info?User={user}"
+ r = requests.get(url).json()
+ try:
+  na = r["results"]["name"]
+  po = r["results"]["Posts"]
+  fo = r["results"]["Followers"]
+  fl = r["results"]["Following"]
+  id = r["results"]["id"]
+  cr = r["results"]["created date"]
+  bot.send_message(message.chat.id,f'''HI •؍؍ THIS IS ACC... INFO...
+○●○●○●○●○●○●○●○●○●
+˹💁˼ USER ‣ {user}
+˹🫰˼ NAME ‣ {na}
+˹🗺˼ POSTS ‣ {po}
+˹👥˼ FOLLOWERS ‣ {fo}
+˹🚻˼ FOLLOWING ‣ {fl}
+˹🆔˼ ID ‣ {id}
+˹⌛️˼ DATE ‣ {cr}
+○●○●○●○●○●○●○●○●○●
+˹🧑‍💻˼ DEV ‣ @CD_B5
+˹🧑‍🔬˼ CH ‣ @IIIBIIl''')
+ except:
+     bot.send_message(message.chat.id,f'''NOT USER FOUND 💔
+لم يتم العثور علئ اليوزر 💔''')
+bot.infinity_polling()
 
 @server.route(f"/{BOT_TOKEN}", methods=["POST"])
 def redirect_message():
